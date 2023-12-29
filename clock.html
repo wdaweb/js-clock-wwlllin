@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock</title>
+
+  <style>
+    body {
+    background: #000;
+    color: lightskyblue;
+    }
+
+    #btn {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      border-radius: 3px;
+      border: 2px solid #fff;
+      display: flex;
+    }
+
+    #btn1 {
+      width: 5vh;
+      height: 3vh;
+      background: #fff;
+    }
+
+    #btn2 {
+      width: 5vh;
+      height: 3vh;
+      background: #000;
+    }
+
+    /* hour --------------------------------------------------------------------------------------------- */
+    #hour {
+      width: 15vh;
+      height: 15vh;
+      border-radius: 50%;
+      border: 15px solid rgb(255, 165, 0);
+      position: absolute;
+      top: 22%;
+      left: 42.5%;
+    }
+
+    #gearh1 {
+      width: 8vh;
+      height: 30vh;
+      border-radius: 30%;
+      background: rgb(255, 165, 0);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 15vh);
+    }
+
+    #gearh2 {
+      width: 8vh;
+      height: 30vh;
+      border-radius: 30%;
+      background: rgb(255, 165, 0);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 45vh);
+      rotate: 36deg;
+    }
+
+    #gearh3 {
+      width: 8vh;
+      height: 30vh;
+      border-radius: 30%;
+      background:rgb(255, 165, 0);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 75vh);
+      rotate: 72deg;
+    }
+
+    #gearh4 {
+      width: 8vh;
+      height: 30vh;
+      border-radius: 30%;
+      background: rgb(255, 165, 0);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 105vh);
+      rotate: 108deg;
+    }
+
+    #gearh5 {
+      width: 8vh;
+      height: 30vh;
+      border-radius: 30%;
+      background: rgb(255, 165, 0);;
+      position: relative;
+      margin: auto;
+      top: calc(50% - 135vh);
+      rotate: 144deg;
+    }
+
+    #hourc {
+      width: 15vh;
+      height: 15vh;
+      border-radius: 50%;
+      background: #000;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      z-index: 1;
+    }
+
+    #texth {
+      color: rgb(255, 165, 0);
+      text-align: center;
+      position: absolute;
+      right: 3%;
+      bottom: 54%;
+      width: 100%;
+      font-family: monospace;
+      font-size: 9vh;
+      font-weight: bolder;
+      z-index: 2;
+    }
+
+    /* minute ------------------------------------------------------------------------------------------ */
+    #minute {
+      width: 12.5vh;
+      height: 12.5vh;
+      border-radius: 50%;
+      border: 15px solid rgb(0, 177, 143);
+      position: absolute;
+      top: 42%;
+      left: 54%;
+    }
+
+    #gearm1 {
+      width: 7vh;
+      height: 25vh;
+      border-radius: 30%;
+      background: rgb(0, 177, 143);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 12.5vh);
+      left: calc(50% - 6vh);
+      rotate: 12deg;
+    }
+
+    #gearm2 {
+      width: 7vh;
+      height: 25vh;
+      border-radius: 30%;
+      background: rgb(0, 177, 143);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 37.5vh);
+      left: calc(50% - 6vh);
+      rotate: 48deg;
+    }
+
+    #gearm3 {
+      width: 7vh;
+      height: 25vh;
+      border-radius: 30%;
+      background:rgb(0, 177, 143);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 62.5vh);
+      left: calc(50% - 6vh);
+      rotate: 84deg;
+    }
+
+    #gearm4 {
+      width: 7vh;
+      height: 25vh;
+      border-radius: 30%;
+      background: rgb(0, 177, 143);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 87.5vh);
+      left: calc(50% - 6vh);
+      rotate: 120deg;
+    }
+
+    #gearm5 {
+      width: 7vh;
+      height: 25vh;
+      border-radius: 30%;
+      background: rgb(0, 177, 143);;
+      position: relative;
+      margin: auto;
+      top: calc(50% - 112.5vh);
+      left: calc(50% - 6vh);
+      rotate: 156deg;
+    }
+
+    #minutec {
+      width: 12.5vh;
+      height: 12.5vh;
+      border-radius: 50%;
+      background: #000;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      z-index: 1;
+    }
+
+    #textm {
+      color: rgb(0, 177, 143);
+      text-align: center;
+      position: absolute;
+      left: 8%;
+      bottom: 38.5%;
+      width: 100%;
+      font-family: monospace;
+      font-size: 7vh;
+      font-weight: bolder;
+      z-index: 2;
+    }
+
+    /* second ------------------------------------------------------------------------------------------ */
+    #second {
+      width: 10vh;
+      height: 10vh;
+      border-radius: 50%;
+      border: 15px solid rgb(205, 33, 42);
+      position: absolute;
+      top: 59.5%;
+      left: 46%;
+    }
+
+    #gears1 {
+      width: 6vh;
+      height: 20vh;
+      border-radius: 30%;
+      background: rgb(205, 33, 42);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 10vh);
+      rotate: 12deg;
+    }
+
+    #gears2 {
+      width: 6vh;
+      height: 20vh;
+      border-radius: 30%;
+      background: rgb(205, 33, 42);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 30vh);
+      rotate: 48deg;
+    }
+
+    #gears3 {
+      width: 6vh;
+      height: 20vh;
+      border-radius: 30%;
+      background:rgb(205, 33, 42);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 50vh);
+      rotate: 84deg;
+    }
+
+    #gears4 {
+      width: 6vh;
+      height: 20vh;
+      border-radius: 30%;
+      background: rgb(205, 33, 42);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 70vh);
+      rotate: 120deg;
+    }
+
+    #gears5 {
+      width: 6vh;
+      height: 20vh;
+      border-radius: 30%;
+      background: rgb(205, 33, 42);
+      position: relative;
+      margin: auto;
+      top: calc(50% - 90vh);
+      rotate: 156deg;
+    }
+
+    #secondc {
+      width: 10vh;
+      height: 10vh;
+      border-radius: 50%;
+      background: #000;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    #texts {
+      color: rgb(205, 33, 42);
+      text-align: center;
+      position: absolute;
+      left: -0.7%;
+      bottom: 25.5%;
+      width: 100%;
+      font-family: monospace;
+      font-size: 5vh;
+      font-weight: bolder;
+      z-index: 2;
+    }
+
+    /* time -------------------------------------------------------------------------------------------- */
+    #text {
+      color: #fff;
+      text-align: center;
+      position: absolute;
+      right:17%;
+      bottom:39%;
+      width: 100%;
+      font-family: monospace;
+      font-size: 5vh;
+      font-weight: bolder;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="btn">
+    <input type="button" id="btn1">
+    <input type="button" id="btn2">
+  </div>
+
+  <div id="hour">
+    <div id="gearh1"></div>
+    <div id="gearh2"></div>
+    <div id="gearh3"></div>
+    <div id="gearh4"></div>
+    <div id="gearh5"></div>
+    <div id="hourc"></div>
+  </div>
+
+  <div id="minute">
+    <div id="gearm1"></div>
+    <div id="gearm2"></div>
+    <div id="gearm3"></div>
+    <div id="gearm4"></div>
+    <div id="gearm5"></div>
+    <div id="minutec"></div>
+  </div>
+
+  <div id="second">
+    <div id="gears1"></div>
+    <div id="gears2"></div>
+    <div id="gears3"></div>
+    <div id="gears4"></div>
+    <div id="gears5"></div>
+    <div id="secondc"></div>
+  </div>
+
+  <div id="time">
+    <p id="texth"><b>00</b></p>
+    <p id="textm"><b>00</b></p>
+    <p id="texts"><b>00</b></p>
+    <p id="text"><b>00</b></p>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+
+  <script>
+
+  const elHour = document.getElementById('hour')
+  const elMinute = document.getElementById('minute')
+  const elSecond = document.getElementById('second')
+  const elText = document.getElementById('text')
+  const elTexth = document.getElementById('texth')
+  const elTextm = document.getElementById('textm')
+  const elTexts = document.getElementById('texts')
+
+  const clock = () => {
+    const date = new Date()
+    const hour = date.getHours()
+    const minute = date.getMinutes()
+    const second = date.getSeconds()
+    elHour.style.transform = `rotate(${hour * 30 }deg)`
+    elMinute.style.transform = `rotate(-${minute * 6 }deg)`
+    elSecond.style.transform = `rotate(${second * 6 }deg)`
+    elTexth.innerText = `${hour.toString().padStart(2, '0')}`
+    elTextm.innerText = `${minute.toString().padStart(2, '0')}`
+    elTexts.innerText = `${second.toString().padStart(2, '0')}`
+    elText.innerText = new Date().toLocaleString('ja-jp')
+  }
+
+  setInterval(clock, 1000)
+  clock()
+
+  // switch color
+  $('#btn1').on('click',function(){
+    $('body').css({background: "white"})
+    $('#hourc').css({background: "white"})
+    $('#minutec').css({background: "white"})
+    $('#secondc').css({background: "white"})
+    $('#text').css({color: "black"})
+    $(this).css({background: "black"})
+    $('#btn2').css({background: "white"})
+  })
+
+  $('#btn2').on('click',function(){
+    $('body').css({background: "black"})
+    $('#hourc').css({background: "black"})
+    $('#minutec').css({background: "black"})
+    $('#secondc').css({background: "black"})
+    $('#text').css({color: "white"})
+    $(this).css({background: "black"})
+    $('#btn1').css({background: "white"})
+  })
+
+  </script>
+
+</body>
+</html>
